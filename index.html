@@ -11,12 +11,17 @@
         h1 { color: #d63384; font-size: 24px; }
         .cake { font-size: 60px; animation: float 2.5s infinite; display: inline-block; }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
-        #message-area { font-size: 17px; color: #555; margin: 20px 0; line-height: 1.6; text-align: left; min-height: 100px; white-space: pre-wrap; }
-        .btn { background-color: #ff4d6d; color: white; border: none; padding: 15px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 16px; }
-        .footer { margin-top: 30px; font-size: 11px; color: #aaa; letter-spacing: 1px; }
+        #message-area { font-size: 17px; color: #555; margin: 20px 0; line-height: 1.6; text-align: left; min-height: 150px; white-space: pre-wrap; font-weight: 500; }
+        .btn { background-color: #ff4d6d; color: white; border: none; padding: 15px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 16px; box-shadow: 0 4px 10px rgba(255,77,109,0.3); }
+        .footer { margin-top: 30px; font-size: 11px; color: #aaa; }
     </style>
 </head>
 <body>
+
+    <audio id="birthdayMusic" loop>
+        <source src="https://www.mboxdrive.com/Happy%20Birthday%20Instrumental.mp3" type="audio/mpeg">
+    </audio>
+
     <div class="container">
         <div class="cake">🎂</div>
         <h1>Happy Birthday, Ehsan! ❤️</h1>
@@ -24,28 +29,20 @@
         <button id="main-btn" class="btn" onclick="startExperience()">Read My Heart ❤️</button>
         <div class="footer">CREATED WITH LOVE BY AYESHA ✨<br>♡ ALWAYS & FOREVER ♡</div>
     </div>
-    <script>
-        const msg = [
-            "Happy Birthday to the person who owns my heart! ✨💗🎂",
-            "I hope your day is as beautiful as your smile and as bright as your soul.🫂✨️",
-            "Ap meri life ki sab se haseen haqeeqat hain, aur ap k saath guzra har pal mere liye kisi tohfay se kam nahi.🥹🫠",
-            "May Allah bless you with endless happiness, health, and success. Meri dua hai ke ap hamesha muskuraate raho, kyunki apki khushi mein hi meri duniya hai.😘😍",
-            "Cheers to another year of us, growing together and loving more. Hamesha khush raho, my love! 🎂❤️🌹",
-            "Happy Birthday, Love! ✨ Allah apko woh sab kuch de jo apka dil chahta hai. You deserve the world and so much more. Stay blessed!😌💋",
-            "HBD to my favorite human! 🌝🎀",
-            "Ap k saath zindagi bohot khubsurat hai. May this year bring you as much joy as you’ve given me.🫠❣️",
-            "Happy Birthday to the one who makes every moment feel like a celebration. You are my greatest blessing and my favorite 'sukoon.'💖🥺🫂",
-            "Stay with me meri jawn !! 💗",
-            "Love you so much Ehsan !! 💋🫂"
-        ];
 
-        let idx = 0;
+    <script>
+        const fullText = `Happy Birthday to the person who owns my heart! ✨💗🎂\n\nI hope your day is as beautiful as your smile and as bright as your soul.🫂✨️\n\nAp meri life ki sab se haseen haqeeqat hain, aur ap k saath guzra har pal mere liye kisi tohfay se kam nahi.🥹🫠\n\nMay Allah bless you with endless happiness, health, and success. Meri dua hai ke ap hamesha muskuraate raho, kyunki apki khushi mein hi meri duniya hai.😘😍\n\nCheers to another year of us, growing together and loving more. Hamesha khush raho, my love! 🎂❤️🌹\n\n"Happy Birthday, Love! ✨\nAllah apko woh sab kuch de jo apka dil chahta hai. You deserve the world and so much more. Stay blessed!"😌💋\n\n"HBD to my favorite human! 🌝🎀\nAp k saath zindagi bohot khubsurat hai. May this year bring you as much joy as you’ve given me.🫠❣️\n\n"Happy Birthday to the one who makes every moment feel like a celebration. You are my greatest blessing and my favorite "sukoon."💖🥺🫂\n\nStay with me meri jawn !! 💗\nLove you so much Ehsan !! 💋🫂`;
+
+        let charIndex = 0;
+        const speed = 50; // Speed in milliseconds (ek alphabet kitni dair mein aaye)
+
         function typeWriter() {
-            if (idx < msg.length) {
-                if(idx === 0) document.getElementById('message-area').innerHTML = "";
-                document.getElementById('message-area').innerHTML += msg[idx] + "<br><br>";
-                idx++;
-                setTimeout(typeWriter, 1500); 
+            if (charIndex < fullText.length) {
+                document.getElementById('message-area').innerHTML += fullText.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeWriter, speed);
+                // Auto scroll to bottom as text types
+                window.scrollTo(0, document.body.scrollHeight);
             } else {
                 startHearts();
             }
@@ -61,7 +58,17 @@
         }
 
         function startExperience() {
+            // Play Music
+            const music = document.getElementById('birthdayMusic');
+            music.play().catch(e => console.log("Music play failed:", e));
+
+            // Hide Button
             document.getElementById('main-btn').style.display = 'none';
+            
+            // Clear placeholder
+            document.getElementById('message-area').innerHTML = "";
+            
+            // Start Typing
             typeWriter();
         }
     </script>
