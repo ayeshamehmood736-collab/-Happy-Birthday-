@@ -7,7 +7,6 @@
     <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
     <style>
         body { 
-            /* Romantic Background Wallpaper */
             background-image: url('https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?q=80&w=1000&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
@@ -23,28 +22,26 @@
             overflow-x: hidden; 
         }
         .container { 
-            background: rgba(255, 255, 255, 0.85); 
+            background: rgba(255, 255, 255, 0.88); 
             padding: 30px; 
             border-radius: 24px; 
             box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
             width: 85%; 
             max-width: 450px; 
             z-index: 10; 
-            position: relative; 
             backdrop-filter: blur(8px);
         }
-        h1 { color: #d63384; font-size: 24px; margin-bottom: 20px; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
-        .cake-icon { font-size: 60px; animation: float 2.5s infinite; display: inline-block; }
+        h1 { color: #d63384; font-size: 24px; margin-bottom: 15px; }
+        .cake-icon { font-size: 55px; animation: float 2.5s infinite; display: inline-block; }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
         
         #message-area { 
-            /* Romantic Typing Bar Style */
-            font-size: 18px; 
-            color: #444; 
+            font-size: 17px; 
+            color: #333; 
             margin: 20px 0; 
-            line-height: 1.7; 
+            line-height: 1.8; 
             text-align: left; 
-            min-height: 200px; 
+            min-height: 250px; 
             white-space: pre-wrap; 
             font-weight: 500;
             background-color: #fff0f3; 
@@ -54,98 +51,67 @@
             box-shadow: inset 0 2px 10px rgba(255,77,109,0.1);
         }
         
-        .btn { background-color: #ff4d6d; color: white; border: none; padding: 15px 35px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 17px; box-shadow: 0 4px 10px rgba(255,77,109,0.3); transition: 0.3s; }
-        .btn:hover { transform: scale(1.05); background-color: #c9184a; }
-        .footer { margin-top: 30px; font-size: 12px; color: #777; font-weight: bold; }
+        .btn { background-color: #ff4d6d; color: white; border: none; padding: 15px 35px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 17px; box-shadow: 0 4px 10px rgba(255,77,109,0.3); }
+        .footer { margin-top: 25px; font-size: 11px; color: #777; font-weight: bold; }
     </style>
 </head>
 <body>
 
     <audio id="birthdayMusic" loop>
-        <source src="https://files.catbox.moe/fk60gq.mp3" type="audio/mpeg">
+        <source src="https://files.catbox.moe/dza4pt.mp3" type="audio/mpeg">
     </audio>
 
     <div class="container">
         <div class="cake-icon">🎂</div>
         <h1>Happy Birthday, Ehsan! ❤️</h1>
-        <div id="message-area">Ayesha has a special message for you... ✨ Click below!</div>
+        <div id="message-area">Click below to feel my heartbeat... ✨</div>
         <button id="main-btn" class="btn" onclick="startExperience()">Read My Heart ❤️</button>
-        <div class="footer">CREATED WITH LOVE BY AYESHA ✨<br>♡ ALWAYS & FOREVER ♡</div>
+        <div class="footer">CREATED WITH UNLIMITED LOVE BY AYESHA ✨<br>♡ ALWAYS & FOREVER ♡</div>
     </div>
 
     <script>
-        const fullText = `Happy Birthday to the person who owns my heart! ✨💗🎂\n\nI hope your day is as beautiful as your smile and as bright as your soul.🫂✨️\n\nAp meri life ki sab se haseen haqeeqat hain, aur ap k saath guzra har pal mere liye kisi tohfay se kam nahi.🥹🫠\n\nMay Allah bless you with endless happiness, health, and success. Meri dua hai ke ap hamesha muskuraate raho, kyunki apki khushi mein hi meri duniya hai.😘😍\n\nCheers to another year of us, growing together and loving more. Hamesha khush raho, my love! 🎂❤️🌹\n\n"Happy Birthday, Love! ✨\nAllah apko woh sab kuch de jo apka dil chahta hai. You deserve the world and so much more. Stay blessed!"😌💋\n\n"HBD to my favorite human! 🌝🎀\nAp k saath zindagi bohot khubsurat hai. May this year bring you as much joy as you’ve given me.🫠❣️\n\n"Happy Birthday to the one who makes every moment feel like a celebration. You are my greatest blessing and my favorite "sukoon."💖🥺🫂\n\nStay with me meri jawn !! 💗\nLove you so much Ehsan !! 💋🫂`;
+        const fullText = `Happy Birthday to the person who owns my heart! ✨💗🎂\n\nI hope your day is as beautiful as your smile and as bright as your soul.🫂✨️\n\nAp meri life ki sab se haseen haqeeqat hain, aur ap k saath guzra har pal mere liye kisi tohfay se kam nahi.🥹🫠\n\nMay Allah bless you with endless happiness, health, and success. Meri dua hai ke ap hamesha muskuraate raho, kyunki apki khushi mein hi meri duniya hai.😘😍\n\nCheers to another year of us, growing together and loving more. Hamesha khush raho, my love! 🎂❤️🌹\n\n"Happy Birthday, Love! ✨\nAllah apko woh sab kuch de jo apka dil chahta hai. You deserve the world and so much more. Stay blessed!"😌💋\n\n"HBD to my favorite human! 🌝🎀\nAp k saath zindagi bohot khubsurat hai. May this year bring you as much joy as you’ve given me.🫠❣️\n\n"Happy Birthday to the one who makes every moment feel like a celebration. You are my greatest blessing and my favorite "sukoon."💖🥺🫂\n\n--- Special Note ---\n\nHar saal, har din, har pal... mera pyar apke liye barhta hi jayega. Ap sirf meri pasand nahi, meri zaroorat ho. ❤️\n\nI promise to stand by you in every storm and every sunshine. Meri puri kainaat ap hi ho! 🌍💍\n\nStay with me meri jawn !! 💗\nLove you so much Ehsan !! 💋🫂\n\nYours Forever, Ayesha ✨`;
 
         let charIndex = 0;
-        const typingSpeed = 65; 
+        const typingSpeed = 90; // Thora aur slow kar diya taaki music poora chale
 
         function typeWriter() {
             if (charIndex < fullText.length) {
                 document.getElementById('message-area').innerHTML += fullText.charAt(charIndex);
                 charIndex++;
                 setTimeout(typeWriter, typingSpeed);
-                window.scrollTo(0, document.body.scrollHeight);
+                
+                // Typing ke saath auto-scroll
+                const area = document.getElementById('message-area');
+                area.scrollTop = area.scrollHeight;
             }
         }
 
         function showHeartsAndCakes() {
-            const duration = 25 * 1000;
+            const duration = 60 * 1000; // 1 minute tak hearts/cakes girenge
             const animationEnd = Date.now() + duration;
 
             (function frame() {
                 if (Date.now() > animationEnd) return;
 
-                // Hearts from sides
-                confetti({
-                    particleCount: 2,
-                    angle: 60,
-                    spread: 55,
-                    origin: { x: 0, y: 0.8 },
-                    shapes: ['heart'],
-                    colors: ['#ff4d6d', '#ff758f']
-                });
-                confetti({
-                    particleCount: 2,
-                    angle: 120,
-                    spread: 55,
-                    origin: { x: 1, y: 0.8 },
-                    shapes: ['heart'],
-                    colors: ['#c9184a']
-                });
+                confetti({ particleCount: 2, angle: 60, spread: 55, origin: { x: 0, y: 0.8 }, shapes: ['heart'], colors: ['#ff4d6d', '#ff758f'] });
+                confetti({ particleCount: 2, angle: 120, spread: 55, origin: { x: 1, y: 0.8 }, shapes: ['heart'], colors: ['#c9184a'] });
 
-                // Falling Cakes & Hearts from top
-                if(Math.random() > 0.9) {
-                    confetti({
-                        particleCount: 1,
-                        spread: 360,
-                        origin: { y: Math.random() - 0.2 },
-                        shapes: ['text', 'heart'],
-                        shapeOptions: {
-                            text: { value: ['🎂'] }
-                        },
-                        scalar: 2
-                    });
+                if(Math.random() > 0.96) {
+                    confetti({ particleCount: 1, spread: 360, origin: { y: Math.random() - 0.2 }, shapes: ['text'], shapeOptions: { text: { value: ['🎂'] } }, scalar: 2 });
                 }
-
                 requestAnimationFrame(frame);
             }());
         }
 
         function startExperience() {
-            // Play Your Custom Music
             const music = document.getElementById('birthdayMusic');
-            music.play().catch(e => console.log("Playback blocked"));
+            music.play();
 
-            // Hide Button
             document.getElementById('main-btn').style.display = 'none';
-            
-            // Clear placeholder text
             document.getElementById('message-area').innerHTML = "";
             
-            // Start alphabet by alphabet typing
             typeWriter();
-
-            // Start falling hearts and cakes
             showHeartsAndCakes();
         }
     </script>
