@@ -7,7 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
     <style>
         body { 
-            /* Romantic Background Image (Red Rose) */
+            /* Romantic Background Wallpaper */
             background-image: url('https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?q=80&w=1000&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
@@ -18,12 +18,11 @@
             align-items: center; 
             min-height: 100vh; 
             margin: 0; 
-            font-family: sans-serif; 
+            font-family: 'Segoe UI', Tahoma, sans-serif; 
             text-align: center; 
-            overflow: hidden; 
+            overflow-x: hidden; 
         }
         .container { 
-            /* Transparent white box for a romantic 'glass' effect */
             background: rgba(255, 255, 255, 0.85); 
             padding: 30px; 
             border-radius: 24px; 
@@ -32,41 +31,42 @@
             max-width: 450px; 
             z-index: 10; 
             position: relative; 
-            backdrop-filter: blur(5px); /* Soft blur effect on background */
+            backdrop-filter: blur(8px);
         }
-        h1 { color: #d63384; font-size: 24px; margin-bottom: 20px; }
-        .cake { font-size: 60px; animation: float 2.5s infinite; display: inline-block; }
+        h1 { color: #d63384; font-size: 24px; margin-bottom: 20px; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
+        .cake-icon { font-size: 60px; animation: float 2.5s infinite; display: inline-block; }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
         
         #message-area { 
-            /* Styling the text area - Pink background with romantic glow */
+            /* Romantic Typing Bar Style */
             font-size: 18px; 
             color: #444; 
             margin: 20px 0; 
             line-height: 1.7; 
             text-align: left; 
-            min-height: 180px; 
+            min-height: 200px; 
             white-space: pre-wrap; 
             font-weight: 500;
-            background-color: #fff0f3; /* Romantic Pinkish Background */
+            background-color: #fff0f3; 
             border-radius: 15px;
-            padding: 15px;
-            border: 2px solid #ff4d6d; /* Reddish-Pink Border */
-            box-shadow: inset 0 2px 10px rgba(255,77,109,0.1), 0 0 15px rgba(255,77,109,0.2); /* Soft glow */
+            padding: 20px;
+            border: 2px solid #ff4d6d; 
+            box-shadow: inset 0 2px 10px rgba(255,77,109,0.1);
         }
         
-        .btn { background-color: #ff4d6d; color: white; border: none; padding: 15px 35px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 16px; box-shadow: 0 4px 10px rgba(255,77,109,0.3); }
-        .footer { margin-top: 30px; font-size: 11px; color: #777; font-weight: bold; }
+        .btn { background-color: #ff4d6d; color: white; border: none; padding: 15px 35px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 17px; box-shadow: 0 4px 10px rgba(255,77,109,0.3); transition: 0.3s; }
+        .btn:hover { transform: scale(1.05); background-color: #c9184a; }
+        .footer { margin-top: 30px; font-size: 12px; color: #777; font-weight: bold; }
     </style>
 </head>
 <body>
 
     <audio id="birthdayMusic" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+        <source src="https://files.catbox.moe/fk60gq.mp3" type="audio/mpeg">
     </audio>
 
     <div class="container">
-        <div class="cake">🎂</div>
+        <div class="cake-icon">🎂</div>
         <h1>Happy Birthday, Ehsan! ❤️</h1>
         <div id="message-area">Ayesha has a special message for you... ✨ Click below!</div>
         <button id="main-btn" class="btn" onclick="startExperience()">Read My Heart ❤️</button>
@@ -77,66 +77,64 @@
         const fullText = `Happy Birthday to the person who owns my heart! ✨💗🎂\n\nI hope your day is as beautiful as your smile and as bright as your soul.🫂✨️\n\nAp meri life ki sab se haseen haqeeqat hain, aur ap k saath guzra har pal mere liye kisi tohfay se kam nahi.🥹🫠\n\nMay Allah bless you with endless happiness, health, and success. Meri dua hai ke ap hamesha muskuraate raho, kyunki apki khushi mein hi meri duniya hai.😘😍\n\nCheers to another year of us, growing together and loving more. Hamesha khush raho, my love! 🎂❤️🌹\n\n"Happy Birthday, Love! ✨\nAllah apko woh sab kuch de jo apka dil chahta hai. You deserve the world and so much more. Stay blessed!"😌💋\n\n"HBD to my favorite human! 🌝🎀\nAp k saath zindagi bohot khubsurat hai. May this year bring you as much joy as you’ve given me.🫠❣️\n\n"Happy Birthday to the one who makes every moment feel like a celebration. You are my greatest blessing and my favorite "sukoon."💖🥺🫂\n\nStay with me meri jawn !! 💗\nLove you so much Ehsan !! 💋🫂`;
 
         let charIndex = 0;
-        const typingSpeed = 70; // 1 alphabet every 70ms
+        const typingSpeed = 65; 
 
         function typeWriter() {
             if (charIndex < fullText.length) {
                 document.getElementById('message-area').innerHTML += fullText.charAt(charIndex);
                 charIndex++;
                 setTimeout(typeWriter, typingSpeed);
-                // Scroll page automatically while typing
                 window.scrollTo(0, document.body.scrollHeight);
             }
         }
 
         function showHeartsAndCakes() {
-            // Duration for falling items (15 seconds)
-            const duration = 15 * 1000;
+            const duration = 25 * 1000;
             const animationEnd = Date.now() + duration;
 
             (function frame() {
                 if (Date.now() > animationEnd) return;
 
-                // Falling Hearts spray effect (left and right)
+                // Hearts from sides
                 confetti({
                     particleCount: 2,
                     angle: 60,
                     spread: 55,
-                    origin: { x: 0 },
+                    origin: { x: 0, y: 0.8 },
                     shapes: ['heart'],
                     colors: ['#ff4d6d', '#ff758f']
                 });
                 confetti({
-                    particleCount: 1,
+                    particleCount: 2,
                     angle: 120,
                     spread: 55,
-                    origin: { x: 1 },
+                    origin: { x: 1, y: 0.8 },
                     shapes: ['heart'],
                     colors: ['#c9184a']
                 });
 
-                // Falling Cakes top spray
-                confetti({
-                    particleCount: 1,
-                    spread: 360,
-                    origin: { y: Math.random() - 0.2 },
-                    shapes: ['text'],
-                    shapeOptions: {
-                        text: {
-                            value: ['🎂']
-                        }
-                    },
-                    scalar: 2
-                });
+                // Falling Cakes & Hearts from top
+                if(Math.random() > 0.9) {
+                    confetti({
+                        particleCount: 1,
+                        spread: 360,
+                        origin: { y: Math.random() - 0.2 },
+                        shapes: ['text', 'heart'],
+                        shapeOptions: {
+                            text: { value: ['🎂'] }
+                        },
+                        scalar: 2
+                    });
+                }
 
-                // Update next frame
                 requestAnimationFrame(frame);
             }());
         }
 
         function startExperience() {
-            // Play Music
-            document.getElementById('birthdayMusic').play().catch(e => console.log("Music failed:", e));
+            // Play Your Custom Music
+            const music = document.getElementById('birthdayMusic');
+            music.play().catch(e => console.log("Playback blocked"));
 
             // Hide Button
             document.getElementById('main-btn').style.display = 'none';
@@ -144,10 +142,10 @@
             // Clear placeholder text
             document.getElementById('message-area').innerHTML = "";
             
-            // Start Alphabet Typing
+            // Start alphabet by alphabet typing
             typeWriter();
 
-            // Start Falling Hearts and Cakes immediately!
+            // Start falling hearts and cakes
             showHeartsAndCakes();
         }
     </script>
