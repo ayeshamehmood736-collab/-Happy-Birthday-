@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Ehsan ❤️</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
+
+    <style>
+        :root {
+            --primary-pink: #ff4d6d;
+            --hover-pink: #c9184a;
+            --bg-color: #ffeef2;
+            --text-grey: #555;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            text-align: center;
+            overflow: hidden; /* Important for falling hearts */
+        }
+
+        .container {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(214, 51, 132, 0.15);
+            max-width: 500px;
+            width: 90%;
+            z-index: 10;
+            position: relative; /* Context for falling items */
+        }
+
+        h1 { 
+            color: #d63384; 
+            font-size: 28px; 
+            margin-top: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .cake { 
+            font-size: 65px; 
+            margin-bottom: 15px; 
+            display: inline-block;
+            animation: float 2.5s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Message Display Area */
+        #message-area {
+            font-size: 18px; 
+            color: var(--text-grey); 
+            margin: 25px 0; 
+            line-height: 1.7;
+            min-height: 250px; /* Reserves space while typing */
+            text-align: left; /* Left align for long paragraphs */
+            padding: 0 10px;
+        }
+
+        /* Style specific lines of text if needed */
+        .msg-segment {
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .urdu-text {
+            /* If you want to use a specific font for Urdu, add it here, e.g., font-family: 'Noto Nastaliq Urdu', serif; */
+            direction: ltr; /* Keeps layout consistent within the English container */
+            display: block;
+        }
+
+        .btn {
+            background-color: var(--primary-pink);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 17px;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.3);
+            font-family: inherit;
+        }
+        .btn:hover { 
+            background-color: var(--hover-pink); 
+            transform: scale(1.05); 
+            box-shadow: 0 6px 20px rgba(255, 77, 109, 0.4);
+        }
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .footer { 
+            margin-top: 40px; 
+            font-size: 12px; 
+            color: #bbb; 
+            letter-spacing: 1px;
+            line-height: 1.6;
+        }
+        
+        .signature {
+            font-weight: bold;
+            color: #aaa;
+            margin-top: 5px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="cake">🎂</div>
+        <h1>Happy Birthday, Ehsan! ❤️</h1>
+        
+        <div id="message-area">Click the button to read your message...</div>
+        
+        <button id="main-btn" class="btn" onclick="startExperience()">Read My Heart ❤️</button>
+
+        <div class="footer">
+            CREATED WITH LOVE BY AYESHA ✨<br>
+            <span class="signature">♡ ALWAYS & FOREVER ♡</span>
+        </div>
+    </div>
+
+    <script>
+        // --- 1. THE EXACT TEXT STRINGS ---
+        // I have structured these into paragraphs/segments to make word-by-word more logical.
+        const messageSegments = [
+            "Happy Birthday to the person who owns my heart! ✨💗🎂",
+            "I hope your day is as beautiful as your smile and as bright as your soul.🫂✨️",
+            "Ap meri life ki sab se haseen haqeeqat hain, aur ap k saath guzra har pal mere liye kisi tohfay se kam nahi.🥹🫠",
+            "May Allah bless you with endless happiness, health, and success. Meri dua hai ke ap hamesha muskuraate raho, kyunki apki khushi mein hi meri duniya hai.😘😍",
+            "Cheers to another year of us, growing together and loving more. Hamesha khush raho, my love! 🎂❤️🌹",
+            "Happy Birthday, Love! ✨ Allah apko woh sab kuch de jo apka dil chahta hai. You deserve the world and so much more. Stay blessed!😌💋",
+            "HBD to my favorite human! 🌝🎀",
+            "Ap k saath zindagi bohot khubsurat hai. May this year bring you as much joy as you’ve given me.🫠❣️",
+            "Happy Birthday to the one who makes every moment feel like a celebration. You are my greatest blessing and my favorite \"sukoon.\"💖🥺🫂",
+            "Stay with me meri jawn !! 💗",
+            "Love you so much Ehsan !! 💋🫂"
+        ];
+
+        // --- 2. CONFIGURATION ---
+        const msPerWord = 200; // How fast the words appear (milliseconds)
+        
+        let currentSegmentIndex = 0;
+        let wordTimeout;
+        const messageArea = document.getElementById('message-area');
+        const mainButton = document.getElementById('main-btn');
+
+        // --- 3. THE "WORD BY WORD" ENGINE ---
+        function
